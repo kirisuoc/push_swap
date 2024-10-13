@@ -9,7 +9,7 @@
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-NAME = libft.a
+NAME = push_swap
 
 # Colores
 GREEN = \033[32m
