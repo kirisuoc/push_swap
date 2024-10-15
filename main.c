@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 18:15:52 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 19:06:15 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "./libft/libftprintf.h"
 #include "push_swap.h"
 
-int	is_sorted(t_stack *a)
+static int	is_sorted(t_stack *a)
 {
 	int	i;
 
@@ -28,37 +28,6 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-
-
-static int	wrong_input(int argc, char **argv)
-{
-/* 	int	i;
-
-	i = 1;
-	while (i <= argc)
-	{
-		if (ft_atoi(argv[i]) )
-		i++;
-	} */
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (!is_valid_integer(argv[i]))
-		{
-			write(1, "Error\n", 9);
-			return (1);
-		}
-		i++;
-	}
-	if (is_dup_numbers(argc, argv))
-	{
-		write(1, "Error\n", 6);
-		return (1);
-	}
-	return (0);
-}
 
 void	fill_stack(t_stack *a, int argc, char **argv)
 {
@@ -81,11 +50,7 @@ int main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	if (wrong_input(argc, argv))
-	{
 		return (1);
-	}
-	// Gestionar errores --> ft_printf("Error\n") --> Argumentos que no son int, más args que MAX_INT, números duplicados.
-
 
 	a.data = malloc((argc - 1) * sizeof(int));
 	b.data = malloc((argc - 1) * sizeof(int));
@@ -94,17 +59,17 @@ int main(int argc, char **argv)
 
 	fill_stack(&a, argc, argv);
 
-							// Imprimir el contenido del stack desde el top hasta el bottom
-							for (int j = a.top; j >= 0; j--) { // Cambiado para imprimir desde el top
-								ft_printf("%d\n", a.data[j]);
-							}
-
 	if (is_sorted(&a))
 	{
 		free(a.data);
 		free(b.data);
 		return (0);
 	}
+
+							// Imprimir el contenido del stack desde el top hasta el bottom
+							for (int j = a.top; j >= 0; j--) { // Cambiado para imprimir desde el top
+								ft_printf("%d\n", a.data[j]);
+							}
 
 	free(a.data);
 	free(b.data);
