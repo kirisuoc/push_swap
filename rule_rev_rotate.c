@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 23:24:17 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/13 23:35:58 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 23:37:32 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Desplaza hacia abajo todos los elementos del stack A una posición, de forma
 // que el último elemento se convierte en el primero.
-void	rra(t_stack *a)
+void	rra(t_stack *a, int print)
 {
 	int	temp;
 	int	i;
@@ -30,11 +30,13 @@ void	rra(t_stack *a)
 		}
 		a->data[a->top] = temp;
 	}
+	if (print)
+		write(1, "rra\n", 3);
 }
 
 // Desplaza hacia abajo todos los elementos del stack B una posición, de forma
 // que el último elemento se convierte en el primero.
-void	rrb(t_stack *b)
+void	rrb(t_stack *b, int print)
 {
 	int	temp;
 	int	i;
@@ -50,10 +52,13 @@ void	rrb(t_stack *b)
 		}
 		b->data[b->top] = temp;
 	}
+	if (print)
+		write(1, "rrb\n", 3);
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	rra(a);
-	rrb(b);
+	rra(a, 0);
+	rrb(b, 0);
+	write(1, "rrr\n", 3);
 }

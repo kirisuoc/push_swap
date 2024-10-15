@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 23:23:45 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/13 23:33:56 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 23:29:33 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	pa(t_stack *a, t_stack *b)
 		a->top++;
 		b->top--;
 	}
+	write(1, "pa\n", 3);
 }
 
 // Toma el primer elemento del stack A y lo pone el primero en el stack B.
@@ -34,4 +35,5 @@ void	pb(t_stack *b, t_stack *a)
 		b->top++;
 		a->top--;
 	}
+	write(1, "pb\n", 3);
 }
