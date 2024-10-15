@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 23:18:37 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 23:41:43 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ int main(int argc, char **argv)
 	}
  */
 
-/*  	sa(&a);
+	sa(&a, 1);
 	pb(&b, &a);
 	pb(&b, &a);
 	pb(&b, &a);
-	sa(&a);
+	sa(&a, 1);
 	pa(&a, &b);
 	pa(&a, &b);
-	pa(&a, &b); */
+	pa(&a, &b);
 
 /*	write(1, "sa\n", 3);
 	write(1, "pb\n", 3);
@@ -105,8 +105,6 @@ int main(int argc, char **argv)
 							ft_printf("_ _\na b\n");
 
 							ft_printf("%d\n", b.top); */
-
- 							ft_printf("%d\n", a.data[1]);
 	free(a.data);
 	free(b.data);
 	return (0);
