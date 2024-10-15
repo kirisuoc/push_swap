@@ -6,12 +6,14 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/13 23:52:00 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 17:23:09 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include <limits.h>
 
 typedef struct s_stack
 {
