@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 19:06:15 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 23:18:37 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int main(int argc, char **argv)
 	if (wrong_input(argc, argv))
 		return (1);
 
-	a.data = malloc((argc - 1) * sizeof(int));
-	b.data = malloc((argc - 1) * sizeof(int));
+	a.data = ft_calloc((argc - 1), sizeof(int));
+	b.data = ft_calloc((argc - 1), sizeof(int));
 	if (!a.data || !b.data)
 		return (1);
 
@@ -66,11 +66,47 @@ int main(int argc, char **argv)
 		return (0);
 	}
 
-							// Imprimir el contenido del stack desde el top hasta el bottom
-							for (int j = a.top; j >= 0; j--) { // Cambiado para imprimir desde el top
-								ft_printf("%d\n", a.data[j]);
-							}
+	b.top = -1;
 
+/* 	while (!is_sorted(&a))
+	{
+
+	}
+ */
+
+/*  	sa(&a);
+	pb(&b, &a);
+	pb(&b, &a);
+	pb(&b, &a);
+	sa(&a);
+	pa(&a, &b);
+	pa(&a, &b);
+	pa(&a, &b); */
+
+/*	write(1, "sa\n", 3);
+	write(1, "pb\n", 3);
+	write(1, "pb\n", 3);
+	write(1, "pb\n", 3);
+	write(1, "sa\n", 3);
+	write(1, "pa\n", 3);
+	write(1, "pa\n", 3);
+	write(1, "pa\n", 3);
+ */
+
+
+	// print_instructions??
+
+ 							// Imprimir el contenido del stack A desde el top hasta el bottom
+/* 							for (int j = a.top; j >= 0; j--) { // Cambiado para imprimir desde el top
+								ft_printf("%d ", a.data[j]);
+								ft_printf("%d", b.data[j]);
+								ft_printf("\n");
+							}
+							ft_printf("_ _\na b\n");
+
+							ft_printf("%d\n", b.top); */
+
+ 							ft_printf("%d\n", a.data[1]);
 	free(a.data);
 	free(b.data);
 	return (0);
