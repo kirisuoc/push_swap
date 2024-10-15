@@ -10,7 +10,9 @@ CYAN = \033[36m
 RESET = \033[0m
 
 # Lista de archivos fuente
-SRCS = main.c rule_push.c rule_rev_rotate.c rule_rotate.c rule_swap.c
+SRCS = main.c \
+rule_push.c rule_rev_rotate.c rule_rotate.c rule_swap.c \
+wrong_input.c
 
 # Generar lista de archivos objeto (.o) a partir de los .c
 OBJS = $(SRCS:.c=.o)
