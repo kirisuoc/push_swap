@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 23:23:32 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/13 23:32:46 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/13 23:51:45 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ void	ss(t_stack *a, t_stack *b)
 	sa(a);
 	sb(b);
 }
-
