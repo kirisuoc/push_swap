@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 16:47:04 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 18:15:52 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,45 +28,9 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-int	is_dup_numbers(int argc, char **argv)
-{
-	int	count;
-	int	*numbers;
-	int	i;
-	int	j;
 
-	count = argc - 1;
-	numbers = malloc(count * sizeof(int));
-	if (!numbers)
-		return (1);
-	i = 0;
-	while (i < count)
-	{
-		numbers[i] = ft_atoi(argv[i + 1]);
-		i++;
-	}
 
-	// Verificar duplicados
-	i = 0;
-	while (i < count)
-	{
-		j = 1 + i;
-		while (j < count)
-		{
-			if (numbers[i] == numbers[j])
-			{
-				free(numbers);
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	free(numbers);
-	return (0);
-}
-
-int	wrong_input(int argc, char **argv)
+static int	wrong_input(int argc, char **argv)
 {
 /* 	int	i;
 
@@ -76,6 +40,18 @@ int	wrong_input(int argc, char **argv)
 		if (ft_atoi(argv[i]) )
 		i++;
 	} */
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (!is_valid_integer(argv[i]))
+		{
+			write(1, "Error\n", 9);
+			return (1);
+		}
+		i++;
+	}
 	if (is_dup_numbers(argc, argv))
 	{
 		write(1, "Error\n", 6);

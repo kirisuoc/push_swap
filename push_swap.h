@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 17:23:09 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 17:55:23 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,12 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+
+int		is_dup_numbers(int argc, char **argv);
+int		is_valid_integer(const char *str);
+
+void	fill_stack(t_stack *a, int argc, char **argv);
+int		is_sorted(t_stack *a);
+
 
 #endif
