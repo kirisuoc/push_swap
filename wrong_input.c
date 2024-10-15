@@ -6,12 +6,13 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:53:22 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 18:13:10 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/15 18:57:10 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "push_swap.h"
+#include <limits.h>
 
 static int	check_repeated_int(int count, int *numbers)
 {
@@ -30,7 +31,7 @@ static int	check_repeated_int(int count, int *numbers)
 	return (0);
 }
 
-int	is_dup_numbers(int argc, char **argv)
+static int	is_dup_numbers(int argc, char **argv)
 {
 	int	count;
 	int	*numbers;
@@ -56,7 +57,7 @@ int	is_dup_numbers(int argc, char **argv)
 	return (0);
 }
 
-int	is_valid_integer(const char *str)
+static int	is_valid_integer(const char *str)
 {
 	int	i;
 
@@ -72,4 +73,36 @@ int	is_valid_integer(const char *str)
 		i++;
 	}
 	return (1);
+}
+
+static int	is_in_int_range(const char *str)
+{
+	long	number;
+
+	number = ft_atol(str);
+	if (number < INT_MIN || number > INT_MAX)
+		return (0);
+	return (1);
+}
+
+int	wrong_input(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (!is_valid_integer(argv[i]) || (!is_in_int_range(argv[i])))
+		{
+			write(2, "Error\n", 6);
+			return (1);
+		}
+		i++;
+	}
+	if (is_dup_numbers(argc, argv))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	return (0);
 }
