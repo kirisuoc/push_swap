@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 23:24:01 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 23:36:12 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/16 16:33:56 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ra(t_stack *a, int print)
 		a->data[0] = temp;
 	}
 	if (print)
-		write(1, "pa\n", 3);
+		write(1, "ra\n", 3);
 
 }
 
