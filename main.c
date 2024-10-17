@@ -6,15 +6,14 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/16 17:45:53 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/17 21:32:29 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-#include "./libft/libftprintf.h"
+
 #include "push_swap.h"
 
-static int	is_sorted(t_stack *a)
+int	is_sorted(t_stack *a)
 {
 	int	i;
 
@@ -31,7 +30,7 @@ static int	is_sorted(t_stack *a)
 }
 
 
-void	fill_stack(t_stack *a, int argc, char **argv)
+static void	fill_stack(t_stack *a, int argc, char **argv)
 {
 	int i;
 
@@ -44,55 +43,23 @@ void	fill_stack(t_stack *a, int argc, char **argv)
 	}
 }
 
-void	short_list(t_stack *a)
+
+static void	sort_list(t_stack *a, t_stack *b)
 {
-	while (!is_sorted(a))
-	{
-		if (a->data[a->top] > a->data[a->top - 1])
-			sa(a, 1);
-		else
-			rra(a, 1);
-	}
-}
-
-void	list_upto_5(t_stack *a, t_stack *b)
-{
-	while (a->top > 2)
-		pb(b, a);
-	short_list(a);
-	while (b->top > -1)
-	{
-		if (b->data[b->top] < a->data[a->top])
-			pa(a, b);
-		else if (b->data[b->top] > a->data[0])
-		{
-			pa(a, b);
-			ra(a, 1);
-		}
-		else
-		{
-			while (b->data[b->top] > a->data[a->top] || b->data[b->top] < a->data[0])
-				ra(a, 1);
-			pa(a, b);
-
-		}
-		while (!is_sorted(a))
-			rra(a, 1);
-	}
-}
-
-
-void	sort_list(t_stack *a, t_stack *b)
-{
-	if (a->top + 1 == 3)
+ 	if (a->top + 1 == 3)
 	{
 		short_list(a);
 	}
-	else if (a->top + 1 <= 5)
+ 	else if (a->top + 1 <= 5)
 	{
-		list_upto_5(a, b);
+		up_to_5(a, b);
+	}
+	else
+	{
+
 	}
 }
+
 
 
 int main(int argc, char **argv)
@@ -119,7 +86,7 @@ int main(int argc, char **argv)
 
 	sort_list(&a, &b);
 
-  							// Imprimir el contenido del stack A desde el top hasta el bottom
+   							// Imprimir el contenido del stack A desde el top hasta el bottom
 							ft_printf("\n");
 
  							for (int j = a.top; j >= 0; j--) {
