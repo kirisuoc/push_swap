@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 23:39:04 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/17 21:48:19 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,21 @@
 
 # include <limits.h>
 # include <unistd.h>
+# include "./libft/libft.h"
+# include "./libft/libftprintf.h"
 
 typedef struct s_stack
 {
 	int	*data;	// Array de enteros que almacena los elementos del stack
 	int	top;	// Índice del último elemento del stack (similar a puntero)
 }		t_stack;
+
+typedef struct s_next_move
+{
+	int	position;
+	int	num_moves;
+}		t_next_move;
+
 
 void	sa(t_stack *a, int print);
 void	sb(t_stack *b, int print);
@@ -36,6 +45,10 @@ void	rrr(t_stack *a, t_stack *b);
 
 int		wrong_input(int argc, char **argv);
 
-void	fill_stack(t_stack *a, int argc, char **argv);
+int		is_sorted(t_stack *a);
+
+void	short_list(t_stack *a);
+void	up_to_5(t_stack *a, t_stack *b);
+
 
 #endif

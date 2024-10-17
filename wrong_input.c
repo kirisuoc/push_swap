@@ -6,13 +6,11 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:53:22 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 18:57:10 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/17 21:26:26 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
 #include "push_swap.h"
-#include <limits.h>
 
 static int	check_repeated_int(int count, int *numbers)
 {
