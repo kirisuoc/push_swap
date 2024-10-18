@@ -6,78 +6,90 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:29:05 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/17 22:05:32 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/18 18:53:16 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_biggest_number(t_stack *b)
-{
-	int	i;
-	int	max_number;
-
-	i = 0;
-	max_number = b->data[b->top];
-	while (i < b->top)
-	{
-		if (b->data[i] > max_number)
-			max_number = b->data[i];
-		i++;
-	}
-	return (max_number);
-}
-
-int	get_smallest_number(t_stack *b)
+static int	get_smallest_number(t_stack *a)
 {
 	int	i;
 	int	min_number;
 
-	i = b->top;
-	min_number = b->data[0];
-	while (i > 0)
+	i = a->top;
+	min_number = a->data[0];
+	while (i >= 0)
 	{
-		if (b->data[i] > min_number)
-			min_number = b->data[i];
+		if (a->data[i] < min_number)
+			min_number = a->data[i];
 		i--;
 	}
 	return (min_number);
 }
 
-void	get_next_move(t_stack *a, t_stack *b)
+static int	get_distance_ra(t_stack *a)
 {
-	t_next_move next_move;
-	int			max_number;
-	int			min_number;
+	int	i;
+	int	min_number;
+	int	distance_ra;
 
-	max_number = get_biggest_number(b);
-	min_number = get_smallest_number(b);
-
-	next_move.position = a->top;
-	next_move.num_moves = 0;
-	if (a->data[next_move.position] > max_number)
+	min_number = get_smallest_number(a);
+	distance_ra = 0;
+	i = a->top;
+	while (i >= 0)
 	{
-		if (b->data[b->top] == max_number)
+		if (a->data[i] == min_number)
+			break ;
+		distance_ra++;
+		i--;
+	}
+	return (distance_ra);
+}
+
+static int	get_distance_rra(t_stack *a)
+{
+	int	i;
+	int	min_number;
+	int	distance_rra;
+
+	min_number = get_smallest_number(a);
+	distance_rra = 0;
+	i = 0;
+	while (i <= a->top)
+	{
+		if (a->data[i] == min_number)
 		{
-			next_move.num_moves++;
+			distance_rra = i + 1;
+			break ;
+		}
+		i++;
+	}
+	return (distance_rra);
+}
+
+void	big_stack(t_stack *a, t_stack *b)
+{
+	int	distance_ra;
+	int	distance_rra;
+
+	while (a->top > 2)
+	{
+		distance_ra = get_distance_ra(a);
+		distance_rra = get_distance_rra(a);
+		if (distance_ra <= distance_rra)
+		{
+			while (distance_ra-- > 0)
+				ra(a, 1);
 		}
 		else
 		{
-
+			while (distance_rra-- > 0)
+				rra(a, 1);
 		}
-	}
-}
-
-void	big_stack(t_stack *a, t_stack *b, t_next_move *next_move)
-{
-	int			max_number;
-	int			min_number;
-	int			i;
-
-	max_number = get_biggest_number(b);
-	min_number = get_smallest_number(b);
-	while (b->top < 1)
 		pb(b, a);
-
-	get_next_move(a, b);
+	}
+	short_list(a);
+	while (b->top > -1)
+		pa(a, b);
 }
