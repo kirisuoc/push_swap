@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:29:05 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/18 21:16:55 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/18 21:52:33 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,17 +111,21 @@ void	big_stack(t_stack *a, t_stack *b)
 	int	distance_ra;
 	int	distance_rra;
 	int	min_number;
+	int	max_number;
+	int	range;
 
 	while (a->top > -1)
 	{
 		min_number = get_smallest_number(a);
+		max_number = get_largest_number(a);
+		range = (max_number - min_number) / 10;
 		distance_ra = get_distance_r(a, min_number);
 		distance_rra = get_distance_rr(a, min_number);
 		if (distance_ra <= distance_rra)
 		{
 			while (distance_ra-- >= 0)
 			{
-				if (a->data[a->top] >= min_number - 15 && a->data[a->top] <= min_number + 15)
+				if (a->data[a->top] > min_number - range && a->data[a->top] < min_number + range)
 					pb(b, a);
 				ra(a, 1);
 			}
@@ -130,11 +134,12 @@ void	big_stack(t_stack *a, t_stack *b)
 		{
 			while (distance_rra-- >= 0)
 			{
-				if (a->data[a->top] >= min_number - 15 && a->data[a->top] <= min_number + 15)
+				if (a->data[a->top] > min_number - range && a->data[a->top] < min_number + range)
 					pb(b, a);
 				rra(a, 1);
 			}
 		}
+		pb(b, a);
 	}
 	back_to_a(a, b);
 }
