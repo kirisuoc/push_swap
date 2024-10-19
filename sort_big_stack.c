@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:29:05 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/19 19:26:04 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/19 20:21:55 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	get_largest_number(t_stack *b)
 	return (largest);
 }
 
-static int	get_distance_r(t_stack *a, int	number)
+/* static int	get_distance_r(t_stack *a, int	number)
 {
 	int	i;
 	int	distance_ra;
@@ -147,4 +147,75 @@ void	big_stack(t_stack *a, t_stack *b)
 		}
 	}
 	back_to_a(a, b);
+}
+ */
+
+void	fill_move(t_moves *next_move, t_stack *a, t_stack *b)
+{
+	next_move->min_number = get_smallest_number(b);
+	next_move->max_number = get_largest_number(b);
+	next_move->num_moves = 1;
+	next_move->index_num_to_move = a->top;
+}
+
+int	count_moves(t_stack *a, t_stack *b, t_moves *next_move, int i) // int i ?? Índice del número que estamos comprobando
+{
+	int	moves; // Cambiar moves a next_move->num_moves ??
+
+	moves = 0;
+	if (a->data[a->top - i] > next_move->max_number)
+	{
+		if (b->data[b->top] == next_move->max_number)
+		{
+			// Ordenar lista y contar moves ?? Para saber moves reales de poner max arriba (o abajo?)
+			moves = 1 + i; // Sumamos i por que es la posición del número en 'a' y tendremos que subirlo a top
+			return (moves);
+		}
+	}
+	else if (a->data[a->top - i] < next_move->max_number)
+	{
+		if (b->data[b->top] == next_move->max_number)
+		{
+			// Ordenar lista y contar moves ?? Para saber moves reales de poner min arriba
+			moves = 1 + i; // Sumamos i por que es la posición del número en 'a' y tendremos que subirlo a top
+			return (moves);
+		}
+	}
+	else // Este número no es ni max ni min. Hay que buscar en 'b' su posición (entre su anterior y posterior)
+	{
+		// Count será lo que cueste subirlo en 'a' + lo que cueste bajarlo en 'b' a su posición
+		// Si la lista está ordenada, solo hay que encontrar el número que es mayor y el de debajo sea menor
+		// Bucle desde b->top hasta encontrar que b->data[j] > NÚMERO && b->data[j - 1] < NÚMERO
+		int	j = 0;
+		while (j < b->top)
+		{
+			if (b->data[b->top - j] > a->data[a->top - i] && b->data[b->top - j - 1] < a->data[a->top - i])
+			{
+				moves = 1 + i + j;
+				next_move->index_num_to_move = a->top - i; // ??
+				return (moves);
+			}
+			j++;
+		}
+	}
+}
+
+// Vamos cogiendo el resultado de count_moves y decidimos qué número vamos a mover. Solo lo actualiamos si el
+// número es más barato que el que tenemos actualmente
+void	decide_next_move()
+{
+
+}
+
+
+void	sort_list(t_stack *a, t_stack *b)
+{
+	t_moves next_move;
+
+	// Inicializar next_move Cómo??
+	while (b->top < 1)
+	{
+		pb(b, a);
+	}
+	fill_move(&next_move, a, b);
 }
