@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/18 19:05:49 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/19 20:09:46 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ typedef struct s_stack
 	int	*data;
 	int	top;
 }		t_stack;
+
+typedef struct s_move
+{
+	int	index_num_to_move;
+	int	num_moves;
+	int	max_number;
+	int	min_number;
+}		t_moves;
+
 
 void	sa(t_stack *a, int print);
 void	sb(t_stack *b, int print);
