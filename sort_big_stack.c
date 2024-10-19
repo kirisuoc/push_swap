@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:29:05 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/18 23:01:17 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/19 19:26:04 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void	big_stack(t_stack *a, t_stack *b)
 			while (distance_ra-- >= 0)
 			{
 				optimizing(a, b);
-				if (a->data[a->top] >= min_number - 5 && a->data[a->top] <= min_number + 5)
+				if (a->data[a->top] >= min_number && a->data[a->top] <= min_number)
 					pb(b, a);
 				ra(a, 1);
 			}
@@ -140,12 +140,11 @@ void	big_stack(t_stack *a, t_stack *b)
 			while (distance_rra-- >= 0)
 			{
 				optimizing(a, b);
-				if (a->data[a->top] >= min_number - 5 && a->data[a->top] <= min_number + 5)
+				if (a->data[a->top] >= min_number && a->data[a->top] <= min_number)
 					pb(b, a);
 				rra(a, 1);
 			}
 		}
 	}
-	short_list(a);
 	back_to_a(a, b);
 }
