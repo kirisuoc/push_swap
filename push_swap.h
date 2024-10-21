@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/19 20:09:46 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/21 15:05:50 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ typedef struct s_stack
 
 typedef struct s_move
 {
-	int	index_num_to_move;
-	int	num_moves;
+	int	index;
 	int	max_number;
 	int	min_number;
+	int	is_reverse;
+
 }		t_moves;
 
 
@@ -52,5 +53,8 @@ int		is_sorted(t_stack *a);
 void	short_list(t_stack *a);
 void	merge_sort_stack(t_stack *a, t_stack *b, int size);
 void	big_stack(t_stack *a, t_stack *b);
+
+void	sort_big_list(t_stack *a, t_stack *b);
+
 
 #endif
