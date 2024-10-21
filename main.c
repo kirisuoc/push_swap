@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/18 20:54:44 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/21 12:16:15 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	sort_list(t_stack *a, t_stack *b)
 		short_list(a);
 	}
 	else
-		big_stack(a, b);
+		sort_big_list(a, b);
 }
 
 
@@ -74,13 +74,14 @@ int main(int argc, char **argv)
 	{
 		free(a.data);
 		free(b.data);
+		ft_printf("Ordenado");
 		return (0);
 	}
 	b.top = -1;
 
 	sort_list(&a, &b);
 
-/*   							// Imprimir el contenido del stack A desde el top hasta el bottom
+   							// Imprimir el contenido del stack A desde el top hasta el bottom
 							ft_printf("\n");
 
  							for (int j = a.top; j >= 0; j--) {
@@ -90,7 +91,7 @@ int main(int argc, char **argv)
 							}
 							ft_printf("_ _\na b\n");
 
-							ft_printf("%d\n", b.top); */
+							ft_printf("%d\n", b.top);
 	free(a.data);
 	free(b.data);
 	return (0);
