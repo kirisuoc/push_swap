@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:29:05 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/21 22:52:05 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/22 00:46:17 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,9 +202,54 @@ void	big_stack(t_stack *a, t_stack *b)
  */
 // Vamos cogiendo el resultado de count_moves y decidimos qué número vamos a mover. Solo lo actualiamos si el
 // número es más barato que el que tenemos actualmente
-void	make_move(t_stack *a, t_stack *b, t_moves *next_move)
+static void	make_move(t_stack *a, t_stack *b, t_moves *next_move)
 {
+	int j;
 
+	ft_printf("%d\n\n", next_move->is_reverse);
+	if (!next_move->is_reverse)
+	{
+		while (next_move->index < a->top)
+		{
+			ra(a, 1);
+			next_move->index++;
+		}
+	}
+	else
+	{
+		while (next_move->index < a->top)
+		{
+			rra(a, 1);
+			next_move->index++;
+		}
+	}
+	if (a->data[a->top] > next_move->max_number || a->data[a->top] < next_move->min_number)
+	{
+		if (b->data[b->top] == next_move->max_number)
+		{
+			pb(b, a);
+		}
+		else if (b->data[b->top] == next_move->min_number)
+		{
+			pb(b, a);
+			rb(b, 1);
+		}
+	}
+ 	else
+	{
+		j = 0;
+		while (j < b->top)
+		{
+			if (b->data[b->top - j] > a->data[a->top - next_move->index] && b->data[b->top - j - 1] < a->data[a->top - next_move->index])
+			{
+				rb(b, 1);
+				return ;
+			}
+			rb(b, 1);
+			j++;
+		}
+		pb(b, a);
+	}
 }
 
 void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move)
@@ -213,31 +258,31 @@ void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move)
 	int	current_moves;
 	int	i;
 	int j;
-	int	distance_ra;
-	int	distance_rra;
+	int	distance_ra_temp;
+	int	distance_rra_temp;
+
 
 	next_move->min_number = get_smallest_number(b);
+	ft_printf("Min_number: %d\n", next_move->min_number);
 	next_move->max_number = get_largest_number(b);
+	ft_printf("Max_number: %d\n", next_move->max_number);
 	moves = INT_MAX;
 	current_moves = 0;
 	i = 0;
 	while (i <= a->top)
 	{
 		// Calcula las distancias de rotación
-		distance_ra = get_distance_r(a, a->data[a->top - i]);
-		distance_rra = get_distance_rr(a, a->data[a->top - i]);
-
+		distance_ra_temp = get_distance_r(a, a->data[a->top - i]);
+		distance_rra_temp = get_distance_rr(a, a->data[a->top - i]);
 
 		// Toma la distancia más corta (ya sea por ra o rra)
-		if (distance_ra < distance_rra)
+		if (distance_ra_temp <= distance_rra_temp)
 		{
-			current_moves = distance_ra;
-			next_move->is_reverse = 0;
+			current_moves = distance_ra_temp;
 		}
 		else
 		{
-			current_moves = distance_rra;
-			next_move->is_reverse = 1;
+			current_moves = distance_rra_temp;
 		}
 		if (a->data[a->top - i] > next_move->max_number || a->data[a->top - i] < next_move->min_number)
 		{
@@ -255,7 +300,7 @@ void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move)
 			j = 0;
 			while (j < b->top)
 			{
-				if (b->data[b->top - j] > a->data[a->top - i] && b->data[b->top - j- 1] < a->data[a->top - i])
+				if (b->data[b->top - j] > a->data[a->top - i] && b->data[b->top - j - 1] < a->data[a->top - i])
 				{
 					current_moves = 1 + i + j;
 				}
@@ -266,10 +311,21 @@ void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move)
 		{
 			moves = current_moves;
 			next_move->index = a->top - i;
+			next_move->distance_ra = distance_ra_temp;
+			next_move->distance_rra = distance_rra_temp;
+			if (distance_ra_temp < distance_rra_temp)
+			{
+				next_move->is_reverse = 0;
+			}
+			else
+			{
+				next_move->is_reverse = 1;
+			}
 		}
 		i++;
 	}
-	ft_printf("Próximo índice más barato: %d\n", next_move->index);
+	ft_printf("Próximo índice más barato: %d número: %d\n", next_move->index, a->data[next_move->index]);
+	ft_printf("Moves: %d\n", moves);
 }
 
 void	sort_big_list(t_stack *a, t_stack *b)
@@ -285,8 +341,30 @@ void	sort_big_list(t_stack *a, t_stack *b)
 	}
 	if (b->data[b->top] < b->data[b->top - 1])
 		sb(b, 1);
+	while (a->top > 0)
+	{
 
-	get_cheaper_index(a, b, &next_move);
+		get_cheaper_index(a, b, &next_move);
+		make_move(a, b, &next_move);
+		if (b->data[b->top] < b->data[b->top - 1])
+			rb(b, 1);
+	}
+/*  		get_cheaper_index(a, b, &next_move);
+		make_move(a, b, &next_move);
+		if (b->data[b->top] < b->data[b->top - 1])
+			rb(b, 1);
+		get_cheaper_index(a, b, &next_move);
+
+			ft_printf(": %d\n", next_move.index);
+		make_move(a, b, &next_move);
+		if (b->data[b->top] < b->data[b->top - 1])
+			rb(b, 1);
+		get_cheaper_index(a, b, &next_move);
+		make_move(a, b, &next_move);
+		if (b->data[b->top] < b->data[b->top - 1])
+			rb(b, 1);
+		get_cheaper_index(a, b, &next_move);
+		make_move(a, b, &next_move); */
 /* 	while (a->top > -1)
 	{
 

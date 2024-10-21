@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/21 12:16:15 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/21 23:57:51 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,14 @@ int main(int argc, char **argv)
    							// Imprimir el contenido del stack A desde el top hasta el bottom
 							ft_printf("\n");
 
- 							for (int j = a.top; j >= 0; j--) {
+ 							for (int j = b.top; j >= 0; j--) {
 								ft_printf("%d ", a.data[j]);
 								ft_printf("%d", b.data[j]);
 								ft_printf("\n");
 							}
 							ft_printf("_ _\na b\n");
 
-							ft_printf("%d\n", b.top);
+							ft_printf("%d %d\n", a.top, b.top);
 	free(a.data);
 	free(b.data);
 	return (0);
