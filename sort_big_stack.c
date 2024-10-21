@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:29:05 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/19 20:21:55 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/21 15:47:40 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	get_largest_number(t_stack *b)
 	return (largest);
 }
 
-/* static int	get_distance_r(t_stack *a, int	number)
+static int	get_distance_r(t_stack *a, int	number)
 {
 	int	i;
 	int	distance_ra;
@@ -88,7 +88,7 @@ void	optimizing(t_stack *a, t_stack *b)
 	}
 }
 
-static void	back_to_a(t_stack *a, t_stack *b)
+/*static void	back_to_a(t_stack *a, t_stack *b)
 {
 	int	distance_rb;
 	int	distance_rrb;
@@ -150,15 +150,15 @@ void	big_stack(t_stack *a, t_stack *b)
 }
  */
 
-void	fill_move(t_moves *next_move, t_stack *a, t_stack *b)
+/* void	fill_move(t_moves *next_move, t_stack *a, t_stack *b)
 {
 	next_move->min_number = get_smallest_number(b);
 	next_move->max_number = get_largest_number(b);
 	next_move->num_moves = 1;
 	next_move->index_num_to_move = a->top;
-}
+} */
 
-int	count_moves(t_stack *a, t_stack *b, t_moves *next_move, int i) // int i ?? Índice del número que estamos comprobando
+/* int	count_moves(t_stack *a, t_stack *b, t_moves *next_move, int i) // int i ?? Índice del número que estamos comprobando
 {
 	int	moves; // Cambiar moves a next_move->num_moves ??
 
@@ -192,14 +192,14 @@ int	count_moves(t_stack *a, t_stack *b, t_moves *next_move, int i) // int i ?? �
 			if (b->data[b->top - j] > a->data[a->top - i] && b->data[b->top - j - 1] < a->data[a->top - i])
 			{
 				moves = 1 + i + j;
-				next_move->index_num_to_move = a->top - i; // ??
+				next_move->index = a->top - i; // ??
 				return (moves);
 			}
 			j++;
 		}
 	}
 }
-
+ */
 // Vamos cogiendo el resultado de count_moves y decidimos qué número vamos a mover. Solo lo actualiamos si el
 // número es más barato que el que tenemos actualmente
 void	decide_next_move()
@@ -207,15 +207,100 @@ void	decide_next_move()
 
 }
 
+void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move)
+{
+	int	moves;
+	int	current_moves;
+	int	i;
+	int j;
+	int	distance_ra;
+	int	distance_rra;
 
-void	sort_list(t_stack *a, t_stack *b)
+	next_move->min_number = get_smallest_number(b);
+	next_move->max_number = get_largest_number(b);
+	moves = INT_MAX;
+	current_moves = 0;
+	i = 0;
+	while (i <= a->top)
+	{
+		// Calcula las distancias de rotación
+		distance_ra = get_distance_r(a, a->data[a->top - i]);
+		distance_rra = get_distance_rr(a, a->data[a->top - i]);
+
+
+		// Toma la distancia más corta (ya sea por ra o rra)
+		if (distance_ra < distance_rra)
+		{
+			current_moves = distance_ra + 1;	// +1 por el pb
+
+			next_move->is_reverse = 0;
+		}
+		else
+		{
+			current_moves = distance_rra + 1;	// +1 por el pb
+
+			next_move->is_reverse = 1;
+		}
+		if (a->data[a->top - i] > next_move->max_number || a->data[a->top - i] < next_move->min_number)
+		{
+			if (b->data[b->top] == next_move->max_number)															// Mirar esto para ver cómo actualizar min y max sin afectar el resto de verif.
+			{
+				current_moves++;	// Por el pb																	y ver si sumar 1 por el pb aquí o no
+			}
+			else if (b->data[b->top] == next_move->min_number)
+			{
+				current_moves = current_moves + 2;	// Por el ra + pb
+			}
+		}
+		else	// Este número no es ni max ni min. Hay que buscar en 'b' su posición (entre su anterior y posterior)
+		{
+			j = 0;
+			while (j < b->top)
+			{
+				if (b->data[b->top - j] > a->data[a->top - i] && b->data[b->top - j- 1] < a->data[a->top - i])
+				{
+					current_moves = 1 + i + j;
+				}
+				j++;
+			}
+		}
+		if (current_moves < moves)
+		{
+			moves = current_moves;
+			next_move->index = a->top - i;
+		}
+		i++;
+	}
+	ft_printf("%d\n", moves);
+	ft_printf("%d\n", next_move->index);
+}
+
+void	sort_big_list(t_stack *a, t_stack *b)
 {
 	t_moves next_move;
 
-	// Inicializar next_move Cómo??
+	// Inicializar next_move
+	next_move.index = -1;
+
 	while (b->top < 1)
 	{
 		pb(b, a);
 	}
-	fill_move(&next_move, a, b);
+	pb(b, a);
+
+
+	get_cheaper_index(a, b, &next_move);
+/* 	while (a->top > -1)
+	{
+
+	} */
+
+
+
+
+
+//	fill_move(&next_move, a, b);
 }
+
+
+// VERIFICAR POR QUÉ EL NÚMERO 5 SALE QUE TIENE 2 MOVIMIENTOS CUANDO TIENE 3
