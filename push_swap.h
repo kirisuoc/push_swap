@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/21 23:00:13 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/22 15:10:11 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	rrr(t_stack *a, t_stack *b);
 int		wrong_input(int argc, char **argv);
 
 int		is_sorted(t_stack *a);
+int		is_sorted_reverse(t_stack *a);
 
 void	short_list(t_stack *a);
 void	merge_sort_stack(t_stack *a, t_stack *b, int size);
