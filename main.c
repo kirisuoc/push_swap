@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/22 15:16:14 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/22 22:15:38 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void	sort_list(t_stack *a, t_stack *b)
 		short_list(a);
 	}
 	else
-		sort_big_list(a, b);
+		sort_big_stack(a, b);
 }
 
 
