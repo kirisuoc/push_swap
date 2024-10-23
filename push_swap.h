@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/22 22:15:44 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/23 20:55:08 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 # include <unistd.h>
 # include "./libft/libft.h"
 # include "./libft/libftprintf.h"
+
+// Definiciones de códigos de color ANSI
+#define RESET		"\033[0m"
+#define RED			"\033[31m"
+#define GREEN		"\033[32m"
+#define YELLOW		"\033[33m"
+#define BLUE		"\033[34m"
+#define MAGENTA		"\033[35m"
+#define CYAN		"\033[36m"
+#define WHITE		"\033[37m"
+#define GRAY       "\033[90m"
+
 
 typedef struct s_stack
 {
@@ -29,10 +41,12 @@ typedef struct s_move
 	int	index;
 	int	max_number;
 	int	min_number;
-	int	is_reverse_a;
-	int	is_reverse_b;
 	int	distance_ra;	// Creo que no hace falta
 	int	distance_rra;
+	int	is_reverse_a;
+	int	is_reverse_b;
+	int	is_reverse_b_temp;
+
 
 }		t_moves;
 
@@ -59,6 +73,8 @@ void	merge_sort_stack(t_stack *a, t_stack *b, int size);
 void	big_stack(t_stack *a, t_stack *b);
 
 void	sort_big_stack(t_stack *a, t_stack *b);
+
+void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move);
 
 
 #endif
