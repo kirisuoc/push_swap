@@ -13,7 +13,7 @@ RESET = \033[0m
 SRCS = main.c \
 rule_push.c rule_rev_rotate.c rule_rotate.c rule_swap.c \
 wrong_input.c sort_big_stack.c sort_small_stack.c get_cheaper_index.c \
-utils_general.c \
+general_utils.c wrong_input_utils.c sort_big_stack_utils.c get_cheaper_index_utils.c \
 
 # Generar lista de archivos objeto (.o) a partir de los .c
 OBJS = $(SRCS:.c=.o)

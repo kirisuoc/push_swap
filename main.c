@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 12:48:38 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:55:53 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,28 @@ static void	sort_list(t_stack *a, t_stack *b)
 		sort_big_stack(a, b);
 }
 
-int	main(int argc, char **argv)
+static int	check_stack_allocation(t_stack *a, t_stack *b, char **list)
 {
-	t_stack	a;
-	t_stack	b;
+	if (!a->data || !b->data)
+	{
+		free_list(list);
+		return (0);
+	}
+	return (1);
+}
+
+static int	initialize_stacks(t_stack *a, t_stack *b, int argc, char **argv)
+{
 	char	**list;
 	int		size;
 
-	if (argc == 1)
-		return (1);
-	if (wrong_input(argc, argv))
-		return (1);
 	if (argc > 2)
 	{
-		a.data = ft_calloc((argc - 1), sizeof(int));
-		b.data = ft_calloc((argc - 1), sizeof(int));
-		if (!a.data || !b.data)
-			return (1);
-		fill_stack(&a, argc - 1, argv + 1);
+		a->data = ft_calloc((argc - 1), sizeof(int));
+		b->data = ft_calloc((argc - 1), sizeof(int));
+		if (!a->data || !b->data)
+			return (0);
+		fill_stack(a, argc - 1, argv + 1);
 	}
 	else if (argc == 2)
 	{
@@ -64,16 +68,27 @@ int	main(int argc, char **argv)
 		size = 0;
 		while (list[size])
 			size++;
-		a.data = ft_calloc(size, sizeof(int));
-		b.data = ft_calloc(size, sizeof(int));
-		if (!a.data || !b.data)
-		{
-			free_list(list);
-			return (1);
-		}
-		fill_stack(&a, size, list);
+		a->data = ft_calloc(size, sizeof(int));
+		b->data = ft_calloc(size, sizeof(int));
+		if (!check_stack_allocation(a, b, list))
+			return (0);
+		fill_stack(a, size, list);
 		free_list(list);
 	}
+	return (1);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	a;
+	t_stack	b;
+
+	if (argc == 1)
+		return (1);
+	if (wrong_input(argc, argv))
+		return (1);
+	if (!initialize_stacks(&a, &b, argc, argv))
+		return (1);
 	if (is_sorted(&a))
 	{
 		free(a.data);

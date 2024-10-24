@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 12:55:39 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:42:25 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,6 @@
 # include "./libft/libft.h"
 # include "./libft/libftprintf.h"
 
-// Definiciones de códigos de color ANSI
-#define RESET		"\033[0m"
-#define RED			"\033[31m"
-#define GREEN		"\033[32m"
-#define YELLOW		"\033[33m"
-#define BLUE		"\033[34m"
-#define MAGENTA		"\033[35m"
-#define CYAN		"\033[36m"
-#define WHITE		"\033[37m"
-#define GRAY       "\033[90m"
-
-
 typedef struct s_stack
 {
 	int	*data;
@@ -38,18 +26,14 @@ typedef struct s_stack
 
 typedef struct s_move
 {
-	int	index;
 	int	max_number;
 	int	min_number;
-	int	distance_ra;	// Creo que no hace falta
+	int	distance_ra;
 	int	distance_rra;
 	int	is_reverse_a;
 	int	is_reverse_b;
 	int	is_reverse_b_temp;
-
-
 }		t_moves;
-
 
 void	sa(t_stack *a, int print);
 void	sb(t_stack *b, int print);
@@ -64,26 +48,28 @@ void	rrb(t_stack *b, int print);
 void	rrr(t_stack *a, t_stack *b);
 
 int		wrong_input(int argc, char **argv);
-/* int		check_repeated_int(int count, int *numbers);
+int		check_repeated_int(int count, int *numbers);
 int		is_dup_numbers(int argc, char **argv);
 int		is_valid_integer(const char *str);
-int		is_in_int_range(const char *str); */
-
-
-void 	free_list(char **list);
+int		is_in_int_range(const char *str);
 
 int		is_sorted(t_stack *a);
 int		is_sorted_reverse(t_stack *a);
 int		get_smallest_number(t_stack *a);
 int		get_largest_number(t_stack *b);
+void	free_list(char **list);
 
 void	short_list(t_stack *a);
 void	medium_list(t_stack *a, t_stack *b);
-void	merge_sort_stack(t_stack *a, t_stack *b, int size);
-
 void	sort_big_stack(t_stack *a, t_stack *b);
 
-void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move);
+int		get_position(t_stack *b, int max_number);
+void	final_sort_b(t_stack *b, t_moves *next_move);
 
+void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move);
+int		get_distance_rb(t_stack *b, t_moves *next_move, int number);
+int		get_distance_rrb(t_stack *b, t_moves *next_move, int number);
+int		get_distance_ra(t_stack *a, int number);
+int		get_distance_rra(t_stack *a, int number);
 
 #endif

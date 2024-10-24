@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_general.c                                    :+:      :+:    :+:   */
+/*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:45:29 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 12:47:11 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:12:59 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ int	get_largest_number(t_stack *b)
 	return (largest);
 }
 
-void free_list(char **list)
+void	free_list(char **list)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (list[i])
 	{
-		free(list[i]);  // Liberar cada cadena individualmente
+		free(list[i]);
 		i++;
 	}
-	free(list);  // Liberar el array de punteros
+	free(list);
 }
