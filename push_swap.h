@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 16:06:38 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 17:26:30 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 
 typedef struct s_move
 {
+	int	index;
 	int	max_number;
 	int	min_number;
 	int	distance_ra;

@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:02:19 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 16:05:14 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 17:30:37 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	is_valid_integer(const char *str)
 
 int	is_in_int_range(const char *str)
 {
-	long number;
+	long	number;
 
 	number = ft_atol(str);
 	if (number < INT_MIN || number > INT_MAX)
