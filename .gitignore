@@ -4,3 +4,6 @@ push_swap
 libft.a
 push_swap_tester/
 *.o
+checker_linux
+checker_Mac
+*.pdf
