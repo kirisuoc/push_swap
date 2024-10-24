@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_stack_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:17:50 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 17:33:29 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 22:55:21 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,19 @@ int	get_position(t_stack *b, int max_number)
 	return (max_pos);
 }
 
-
-void final_sort_b(t_stack *b, t_moves *next_move)
+void	final_sort_b(t_stack *b, t_moves *next_move)
 {
-    int max_pos;
+	int	max_pos;
 
 	max_pos = get_position(b, next_move->max_number);
-
-    // Si el valor máximo está en la primera mitad del stack, es más eficiente usar 'rb'
-    if (max_pos >= b->top / 2)
-    {
-        // Rotar hacia abajo hasta que esté ordenado en orden descendente
-        while (!is_sorted_reverse(b))
-            rb(b, 1);
-    }
-    else
-    {
-        // Si el valor máximo está en la segunda mitad, rotar hacia arriba con 'rrb'
-        while (!is_sorted_reverse(b))
-            rrb(b, 1);
-    }
+	if (max_pos >= b->top / 2)
+	{
+		while (!is_sorted_reverse(b))
+			rb(b, 1);
+	}
+	else
+	{
+		while (!is_sorted_reverse(b))
+			rrb(b, 1);
+	}
 }
