@@ -3,3 +3,4 @@ a.out
 push_swap
 libft.a
 push_swap_tester/
+*.o
