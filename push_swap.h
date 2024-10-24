@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/23 20:55:08 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:14:02 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,12 @@ int		wrong_input(int argc, char **argv);
 
 int		is_sorted(t_stack *a);
 int		is_sorted_reverse(t_stack *a);
+int		get_smallest_number(t_stack *a);
+int		get_largest_number(t_stack *b);
 
 void	short_list(t_stack *a);
+void	medium_list(t_stack *a, t_stack *b);
 void	merge_sort_stack(t_stack *a, t_stack *b, int size);
-void	big_stack(t_stack *a, t_stack *b);
 
 void	sort_big_stack(t_stack *a, t_stack *b);
 

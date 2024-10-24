@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 10:46:20 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 10:55:29 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ static void	sort_list(t_stack *a, t_stack *b)
  	if (a->top + 1 == 3)
 	{
 		short_list(a);
+	}
+	else if (a->top + 1 <= 5)
+	{
+		medium_list(a, b);
 	}
 	else
 		sort_big_stack(a, b);

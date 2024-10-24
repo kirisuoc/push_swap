@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:25:04 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/18 17:44:27 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/24 11:24:17 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,26 @@ void	short_list(t_stack *a)
 			sa(a, 1);
 		else
 			rra(a, 1);
+	}
+}
+
+void	medium_list(t_stack *a, t_stack *b)
+{
+	while (a->top > 2)
+		pb(b, a);
+	short_list(a);
+	while (b->top > -1)
+	{
+		if (b->data[b->top] > get_largest_number(a)|| b->data[b->top] < get_smallest_number(a))
+			while (a->data[a->top] != get_largest_number(a))
+				ra(a, 1);
+		else
+		{
+			while (!(a->data[a->top] < b->data[b->top] && a->data[0] > b->data[b->top]))
+			{
+				ra(a, 1);
+			}
+		}
+		pa(a, b);
 	}
 }

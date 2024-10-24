@@ -6,43 +6,11 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:06:09 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/23 21:40:09 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:18:23 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	get_smallest_number(t_stack *a)
-{
-	int	i;
-	int	smallest;
-
-	i = a->top;
-	smallest = a->data[0];
-	while (i > 0)
-	{
-		if (a->data[i] < smallest)
-			smallest = a->data[i];
-		i--;
-	}
-	return (smallest);
-}
-
-static int	get_largest_number(t_stack *b)
-{
-	int	i;
-	int	largest;
-
-	i = b->top;
-	largest = b->data[0];
-	while (i > 0)
-	{
-		if (b->data[i] > largest)
-			largest = b->data[i];
-		i--;
-	}
-	return (largest);
-}
 
 static int	get_distance_rb(t_stack *b, t_moves *next_move, int number)
 {
@@ -65,7 +33,6 @@ static int	get_distance_rb(t_stack *b, t_moves *next_move, int number)
 	{
 		if (number > b->data[b->top] && number < b->data[0])
 		{
-			//ft_printf("DISTANCE_RB: %d\n", distance_rb);
 			return (distance_rb);
 		}
 		while (!(number < b->data[i] && number > b->data[i - 1]))
@@ -75,7 +42,6 @@ static int	get_distance_rb(t_stack *b, t_moves *next_move, int number)
 		}
 		distance_rb++;
 	}
-	//ft_printf("DISTANCE_RB: %d\n", distance_rb);
 	return (distance_rb);
 }
 

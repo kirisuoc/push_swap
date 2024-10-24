@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:45:29 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 10:48:25 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:13:35 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,3 +44,34 @@ int	is_sorted_reverse(t_stack *a)
 	return (1);
 }
 
+int	get_smallest_number(t_stack *a)
+{
+	int	i;
+	int	smallest;
+
+	i = a->top;
+	smallest = a->data[0];
+	while (i > 0)
+	{
+		if (a->data[i] < smallest)
+			smallest = a->data[i];
+		i--;
+	}
+	return (smallest);
+}
+
+int	get_largest_number(t_stack *b)
+{
+	int	i;
+	int	largest;
+
+	i = b->top;
+	largest = b->data[0];
+	while (i > 0)
+	{
+		if (b->data[i] > largest)
+			largest = b->data[i];
+		i--;
+	}
+	return (largest);
+}
