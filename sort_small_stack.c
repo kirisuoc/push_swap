@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:25:04 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 13:21:04 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:54:32 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,32 @@ void	short_list(t_stack *a)
 			rra(a, 1);
 	}
 }
+/* void short_list(t_stack *a)
+{
+	int	top;
+	int	mid;
+	int	bottom;
+
+	top = a->data[a->top];
+	mid = a->data[a->top - 1];
+	bottom = a->data[a->top - 2];
+	if (top > mid && mid > bottom) // Caso: 3 2 1
+	{
+		ra(a, 1);
+		sa(a, 1);
+	}
+	else if (top > bottom && bottom > mid) // Caso: 3 1 2
+		ra(a, 1);
+	else if (mid > top && top > bottom) // Caso: 2 3 1
+		rra(a, 1);
+	else if (mid > bottom && bottom > top)
+	{
+		rra(a, 1);
+		sa(a, 1);
+	}
+	else if (bottom > top && top > mid) // Caso: 1 3 2
+		sa(a, 1);
+} */
 
 void	medium_list(t_stack *a, t_stack *b)
 {

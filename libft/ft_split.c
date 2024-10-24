@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:24:49 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/09/13 11:46:55 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:49:14 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	**ft_split(char const *s, char c)
 	int		words;
 	int		i;
 
-	if (s == NULL)
+	if (s == NULL || *s == '\0')
 		return (NULL);
 	words = count_words(s, c);
 	array = malloc((words + 1) * sizeof(char *));
