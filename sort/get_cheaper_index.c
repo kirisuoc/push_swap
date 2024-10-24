@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_cheaper_index.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:06:09 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 13:37:40 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 23:07:24 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	moves_to_top_a(t_stack *a, int num)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 13:55:53 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 23:07:06 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	fill_stack(t_stack *a, int counter, char **matrix)
 {

@@ -6,11 +6,11 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 23:23:32 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/15 23:34:47 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/24 23:08:00 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // Intercambia los dos primeros elementos del stack A. No hace nada si hay
 // uno o menos elementos.

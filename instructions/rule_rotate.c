@@ -6,11 +6,11 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 23:24:01 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/18 19:05:29 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/24 23:07:56 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // Desplaza hacia arriba todos los elementos del stack A una posición, de forma
 // que el primer elemento se convierte en el último.

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   wrong_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:53:22 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 16:53:01 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 23:07:39 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	free_resources(int *numbers, char **split_lst)
 {

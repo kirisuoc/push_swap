@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_cheaper_index_utils.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:34:56 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 13:36:10 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 23:07:20 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	get_distance_rb(t_stack *b, t_moves *next_move, int number)
 {

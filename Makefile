@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -Iincludes
 NAME = push_swap
 
 # Colores
@@ -10,10 +10,10 @@ CYAN = \033[36m
 RESET = \033[0m
 
 # Lista de archivos fuente
-SRCS = main.c \
-rule_push.c rule_rev_rotate.c rule_rotate.c rule_swap.c \
-wrong_input.c sort_big_stack.c sort_small_stack.c get_cheaper_index.c \
-general_utils.c wrong_input_utils.c sort_big_stack_utils.c get_cheaper_index_utils.c \
+SRCS = srcs/main.c \
+instructions/rule_push.c instructions/rule_rev_rotate.c instructions/rule_rotate.c instructions/rule_swap.c \
+check_errors/wrong_input.c sort/sort_big_stack.c sort/sort_small_stack.c sort/get_cheaper_index.c \
+srcs/general_utils.c check_errors/wrong_input_utils.c sort/sort_big_stack_utils.c sort/get_cheaper_index_utils.c \
 
 # Generar lista de archivos objeto (.o) a partir de los .c
 OBJS = $(SRCS:.c=.o)

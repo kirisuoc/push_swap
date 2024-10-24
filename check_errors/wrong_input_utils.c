@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   wrong_input_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:02:19 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 17:30:37 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 23:07:35 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	check_repeated_int(int count, int *numbers)
 {

@@ -6,11 +6,11 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:17:50 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 22:55:21 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/24 23:07:30 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	get_position(t_stack *b, int max_number)
 {

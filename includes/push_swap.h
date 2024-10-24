@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 17:26:30 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 23:10:51 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <limits.h>
 # include <unistd.h>
-# include "./libft/libft.h"
-# include "./libft/libftprintf.h"
+# include "../libft/libft.h"
+# include "../libft/libftprintf.h"
 
 typedef struct s_stack
 {

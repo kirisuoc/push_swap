@@ -6,11 +6,11 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:21:53 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 22:55:02 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/24 23:08:03 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	make_move(t_stack *a, t_stack *b, t_moves *next_move)
 {

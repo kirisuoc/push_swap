@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:25:04 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 16:54:32 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 23:08:08 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	short_list(t_stack *a)
 {
