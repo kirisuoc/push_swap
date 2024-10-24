@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wrong_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:53:22 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/17 21:26:26 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/24 11:42:53 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
