@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 11:14:02 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:55:39 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,13 @@ void	rrb(t_stack *b, int print);
 void	rrr(t_stack *a, t_stack *b);
 
 int		wrong_input(int argc, char **argv);
+/* int		check_repeated_int(int count, int *numbers);
+int		is_dup_numbers(int argc, char **argv);
+int		is_valid_integer(const char *str);
+int		is_in_int_range(const char *str); */
+
+
+void 	free_list(char **list);
 
 int		is_sorted(t_stack *a);
 int		is_sorted_reverse(t_stack *a);

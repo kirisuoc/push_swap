@@ -6,29 +6,15 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:06:44 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 12:10:07 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:48:38 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-
-void free_list(char **list)
-{
-	int i;
-
-	i = 0;
-	while (list[i])
-	{
-		free(list[i]);  // Liberar cada cadena individualmente
-		i++;
-	}
-	free(list);  // Liberar el array de punteros
-}
 
 static void	fill_stack(t_stack *a, int counter, char **matrix)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	a->top = counter - 1;
@@ -39,10 +25,9 @@ static void	fill_stack(t_stack *a, int counter, char **matrix)
 	}
 }
 
-
 static void	sort_list(t_stack *a, t_stack *b)
 {
- 	if (a->top + 1 == 3)
+	if (a->top + 1 == 3)
 	{
 		short_list(a);
 	}
@@ -54,28 +39,23 @@ static void	sort_list(t_stack *a, t_stack *b)
 		sort_big_stack(a, b);
 }
 
-
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stack a;
-	t_stack b;
+	t_stack	a;
+	t_stack	b;
 	char	**list;
 	int		size;
 
 	if (argc == 1)
 		return (1);
-/* 	if (wrong_input(argc, argv))
-		return (1); */
-
-
+	if (wrong_input(argc, argv))
+		return (1);
 	if (argc > 2)
 	{
-
 		a.data = ft_calloc((argc - 1), sizeof(int));
 		b.data = ft_calloc((argc - 1), sizeof(int));
-			if (!a.data || !b.data)
-		return (1);
+		if (!a.data || !b.data)
+			return (1);
 		fill_stack(&a, argc - 1, argv + 1);
 	}
 	else if (argc == 2)
@@ -94,7 +74,6 @@ int main(int argc, char **argv)
 		fill_stack(&a, size, list);
 		free_list(list);
 	}
-
 	if (is_sorted(&a))
 	{
 		free(a.data);
@@ -102,21 +81,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	b.top = -1;
-
 	sort_list(&a, &b);
-
- 	 							// Imprimir el contenido del stack A desde el top hasta el bottom
-/* 							ft_printf("\n");
-
- 							for (int j = a.top; j >= 0; j--) {
-								ft_printf("%d ", a.data[j]);
-								ft_printf("%d", b.data[j]);
-								ft_printf("\n");
-							}
-							ft_printf("_ _\na b\n");
-
-							ft_printf("%d\n", b.top); */
-
 	free(a.data);
 	free(b.data);
 	return (0);
