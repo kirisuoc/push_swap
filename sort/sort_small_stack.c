@@ -3,26 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:25:04 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/24 23:08:08 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/25 13:20:12 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 void	short_list(t_stack *a)
-{
-	while (!is_sorted(a))
-	{
-		if (a->data[a->top] > a->data[a->top - 1])
-			sa(a, 1);
-		else
-			rra(a, 1);
-	}
-}
-/* void short_list(t_stack *a)
 {
 	int	top;
 	int	mid;
@@ -31,23 +21,23 @@ void	short_list(t_stack *a)
 	top = a->data[a->top];
 	mid = a->data[a->top - 1];
 	bottom = a->data[a->top - 2];
-	if (top > mid && mid > bottom) // Caso: 3 2 1
+	if (top > mid && mid > bottom)
 	{
 		ra(a, 1);
 		sa(a, 1);
 	}
-	else if (top > bottom && bottom > mid) // Caso: 3 1 2
+	else if (top > bottom && bottom > mid)
 		ra(a, 1);
-	else if (mid > top && top > bottom) // Caso: 2 3 1
+	else if (mid > top && top > bottom)
 		rra(a, 1);
 	else if (mid > bottom && bottom > top)
 	{
 		rra(a, 1);
 		sa(a, 1);
 	}
-	else if (bottom > top && top > mid) // Caso: 1 3 2
+	else if (bottom > top && top > mid)
 		sa(a, 1);
-} */
+}
 
 void	medium_list(t_stack *a, t_stack *b)
 {
