@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cheaper_index.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:06:09 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 23:07:24 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/12/04 12:32:48 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move)
 			moves = current_moves;
 			next_move->distance_ra = get_distance_ra(a, a->data[a->top - i]);
 			next_move->distance_rra = get_distance_rra(a, a->data[a->top - i]);
+			next_move->distance_rb = get_distance_rb(b, next_move, a->data[a->top - i]);
+			next_move->distance_rrb = get_distance_rrb(b, next_move, a->data[a->top - i]);
 			next_move->is_reverse_b = next_move->is_reverse_b_temp;
 			if (next_move->distance_ra >= next_move->distance_rra)
 				next_move->is_reverse_a = 1;

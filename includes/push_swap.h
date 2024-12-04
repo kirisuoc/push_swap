@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/25 12:41:24 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:18:12 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,14 @@ typedef struct s_move
 	int	distance_ra;
 	int	distance_rra;
 	int	is_reverse_a;
+
+	int	distance_rb;	// Nuevo
+	int	distance_rrb;	// Nuevo
 	int	is_reverse_b;
 	int	is_reverse_b_temp;
+
+	int	rr;
+	int	rrr;
 }		t_moves;
 
 void	sa(t_stack *a, int print);
