@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:45:29 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/24 23:07:14 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/12/04 15:24:39 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

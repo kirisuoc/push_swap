@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/04 13:18:12 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:33:01 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,13 @@ void	free_list(char **list);
 void	short_list(t_stack *a);
 void	medium_list(t_stack *a, t_stack *b);
 void	sort_big_stack(t_stack *a, t_stack *b);
+int		get_common_rotations(t_moves *next_move);
 
 int		get_position(t_stack *b, int max_number);
 void	final_sort_b(t_stack *b, t_moves *next_move);
+int		ft_max(int a, int b);
+void	is_better_rr(t_moves *next_move);
+void	make_common_rotations(t_stack *a, t_stack *b, t_moves *next_move);
 
 void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move);
 int		get_distance_rb(t_stack *b, t_moves *next_move, int number);

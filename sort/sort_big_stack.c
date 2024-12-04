@@ -6,11 +6,14 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:21:53 by ecousill          #+#    #+#             */
-/*   Updated: 2024/12/04 13:32:33 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:34:11 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+// Asegurándonos de que se use la función max
+#include <stdlib.h>
 
 static int	move_to_correct_position_in_b(t_stack *a, t_stack *b,
 	t_moves *next_move)
@@ -48,7 +51,6 @@ int	get_common_rotations(t_moves *next_move)
 	common_rotations = 0;
 	next_move->rr = 0;
 	next_move->rrr = 0;
-
 	if (!next_move->is_reverse_a && !next_move->is_reverse_b)
 	{
 		if (next_move->distance_ra <= next_move->distance_rb)
@@ -66,31 +68,6 @@ int	get_common_rotations(t_moves *next_move)
 		next_move->rrr = 1;
 	}
 	return (common_rotations);
-}
-
-void	make_common_rotations(t_stack *a, t_stack *b, t_moves *next_move)
-{
-	int	common_rotations;
-
-	common_rotations = get_common_rotations(next_move);
-	if (next_move->rr)
-	{
-		while (common_rotations--)
-		{
-			rr(a, b);
-			next_move->distance_ra --;
-			next_move->distance_rb --;
-		}
-	}
-	else if (next_move->rrr)
-	{
-		while (common_rotations--)
-		{
-			rrr(a, b);
-			next_move->distance_rra --;
-			next_move->distance_rrb --;
-		}
-	}
 }
 
 static void	make_move(t_stack *a, t_stack *b, t_moves *next_move)
