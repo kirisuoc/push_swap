@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:26:24 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/07 14:31:01 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:01:22 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,43 @@ static char	**read_instructions(int *instructions_count)
 	return (instructions);
 }
 
+static void execute_instructions(char **instructions, int count, t_stack *a, t_stack *b)
+{
+	int	i;
+	i = 0;
+	while (i < count)
+	{
+		if (ft_strcmp(instructions[i], "sa\n") == 0)
+			sa_c(a);
+		else if (ft_strcmp(instructions[i], "sb\n") == 0)
+			sb_c(b);
+		else if (ft_strcmp(instructions[i], "ss\n") == 0)
+			ss_c(a, b);
+		else if (ft_strcmp(instructions[i], "ra\n") == 0)
+			ra_c(a);
+		else if (ft_strcmp(instructions[i], "rb\n") == 0)
+			rb_c(b);
+		else if (ft_strcmp(instructions[i], "rr\n") == 0)
+			rr_c(a, b);
+		else if (ft_strcmp(instructions[i], "rra\n") == 0)
+			rra_c(a);
+		else if (ft_strcmp(instructions[i], "rrb\n") == 0)
+			rrb_c(b);
+		else if (ft_strcmp(instructions[i], "rrr\n") == 0)
+			rrr_c(a, b);
+		else if (ft_strcmp(instructions[i], "pa\n") == 0)
+			pa_c(a, b);
+		else if (ft_strcmp(instructions[i], "pb\n") == 0)
+			pb_c(b, a);
+		else
+		{
+			print_error("Instruction not valid.");
+			exit(1);
+		}
+		i++;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	a;
@@ -60,26 +97,28 @@ int	main(int ac, char **av)
 	int		instructions_count;
 
 	if (ac == 1)
-	{
-		ft_printf("1");
-		return (1);
-	}
+		return (print_error("Error. Enter a list of numbers to be sorted."));
 	if (wrong_input(ac, av))
-	{
-		ft_printf("2");
 		return (1);
-	}
 	if (!initialize_stacks(&a, &b, ac, av))
+		return (print_error("Error. Unable to initialize stack."));
+	instructions = read_instructions(&instructions_count);
+
+	execute_instructions(instructions, instructions_count, &a, &b);
+	if (is_sorted(&a))
 	{
-		ft_printf("3");
+		ft_printf("OK");
+	}
+	else
+	{
+		ft_printf("KO");
 	}
 
-	instructions = read_instructions(&instructions_count);
+	// ¿Chequear si stack b está vacío?
+
+
 	for (int i = 0; i < instructions_count; i++)
-	{
-		ft_printf("%s", instructions[i]);
 		free(instructions[i]);
-	}
 	free (instructions);
 	return (0);
 }

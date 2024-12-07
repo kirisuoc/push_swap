@@ -24,7 +24,8 @@ sort_small_stack.c get_cheaper_index.c general_utils.c wrong_input_utils.c sort_
 OBJ = $(SRC:.c=.o)
 
 # Archivos fuente y objetos para checker
-BONUS_SRC = $(addprefix $(BONUS_SRC_DIR)/, main.c wrong_input.c wrong_input_utils.c free.c)
+BONUS_SRC = $(addprefix $(BONUS_SRC_DIR)/, main.c rule_push.c rule_rev_rotate.c rule_rotate.c rule_swap.c \
+wrong_input.c wrong_input_utils.c general_utils.c free.c errors.c)
 GNL_SRC = $(addprefix gnl/, get_next_line.c get_next_line_utils.c)
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)

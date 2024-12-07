@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:32:21 by ecousill          #+#    #+#             */
-/*   Updated: 2024/12/07 13:38:16 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/07 15:46:13 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,14 @@ int	wrong_input(int argc, char **argv)
 		if (ft_strchr(argv[i], ' '))
 		{
 			if (validate_split_input(argv[i]))
-			{
 				return (1);
-			}
 		}
 		else if (!is_valid_integer(argv[i]) || !is_in_int_range(argv[i]))
-		{
-			write(2, "Error\n", 6);
-			return (1);
-		}
+			return (print_error("Error. Invalid integer."));
 		i++;
 	}
 	if (is_dup_numbers(argc - 1, argv))
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
+		return (print_error("Error. Duplicated numbers found."));
 	return (0);
 }
 
@@ -69,8 +61,8 @@ static int	validate_split_input(char *input)
 		|| check_repeated_int(j, numbers))
 	{
 		free_resources(numbers, split_lst);
-		write(2, "Error\n", 6);
-		return (1);
+		return (print_error( \
+			"Error. Invalid integer or repeated numbers found."));
 	}
 	free_resources(numbers, split_lst);
 	return (0);
