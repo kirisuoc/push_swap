@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:25:06 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/07 16:40:57 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/07 22:25:49 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,12 @@ void	rrb_c(t_stack *b);
 void	rrr_c(t_stack *a, t_stack *b);
 
 // main.c
-int	print_error(char *error_message);
+int		print_error(char *error_message);
+
+// stacks_utils.c
+int		initialize_stacks(t_stack *a, t_stack *b, int argc, char **argv);
+void	fill_stack(t_stack *a, int counter, char **matrix);
+int		check_stack_allocation(t_stack *a, t_stack *b, char **list);
 
 // wrong_input.c
 int		wrong_input(int argc, char **argv);
@@ -57,6 +62,6 @@ void	free_resources(int *numbers, char **split_lst);
 void	free_list(char **list);
 
 // errors.c
-int	print_error(char *error_message);
+int		print_error(char *error_message);
 
 #endif

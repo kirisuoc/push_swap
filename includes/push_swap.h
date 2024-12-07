@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/04 15:33:01 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/07 22:12:18 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,8 @@ typedef struct s_move
 	int	distance_ra;
 	int	distance_rra;
 	int	is_reverse_a;
-
-	int	distance_rb;	// Nuevo
-	int	distance_rrb;	// Nuevo
+	int	distance_rb;
+	int	distance_rrb;
 	int	is_reverse_b;
 	int	is_reverse_b_temp;
 

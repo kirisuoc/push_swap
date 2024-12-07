@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_stack_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:17:50 by ecousill          #+#    #+#             */
-/*   Updated: 2024/12/04 15:33:15 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/07 22:24:47 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

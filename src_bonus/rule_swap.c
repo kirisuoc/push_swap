@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rule_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 23:23:32 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/07 16:33:19 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/07 22:23:47 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,4 @@ void	ss_c(t_stack *a, t_stack *b)
 {
 	sa_c(a);
 	sb_c(b);
-
 }
