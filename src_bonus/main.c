@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:26:24 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/07 17:01:22 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:10:17 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,15 +104,12 @@ int	main(int ac, char **av)
 		return (print_error("Error. Unable to initialize stack."));
 	instructions = read_instructions(&instructions_count);
 
+	b.top = -1;
 	execute_instructions(instructions, instructions_count, &a, &b);
-	if (is_sorted(&a))
-	{
+	if (is_sorted(&a) && b.top == -1)
 		ft_printf("OK");
-	}
 	else
-	{
 		ft_printf("KO");
-	}
 
 	// ¿Chequear si stack b está vacío?
 
