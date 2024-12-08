@@ -67,21 +67,8 @@ El bonus incluye la creación de un programa adicional llamado **checker**, que 
 
 ## Uso de checker
    ```bash
-   ./push_swap 2 1 3 6 5 8
+   ./checker 2 1 3 6 5 8
 ```
-
-
-### Requisitos
-
-- **Funciones autorizadas**:
-  - `read`, `write`, `malloc`, `free`, `exit`.
-  - Funciones personalizadas, como `ft_printf` o equivalentes.
-- **Uso de libft**: Se permite el uso de la librería **libft**, que debe incluirse dentro del proyecto con su propio Makefile.
-- **Makefile**: El proyecto debe incluir un Makefile que cumpla con las siguientes reglas:
-  - `all`: Compila el proyecto.
-  - `clean`: Elimina los archivos intermedios generados durante la compilación.
-  - `fclean`: Elimina los archivos intermedios y el binario generado.
-  - `re`: Limpia y recompila el proyecto desde cero.
 
 ## Licencia
 
