@@ -7,3 +7,4 @@ push_swap_tester/
 checker_linux
 checker_Mac
 *.pdf
+.vscode
