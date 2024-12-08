@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:49:23 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/07 22:12:18 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/12/08 12:19:46 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	is_better_rr(t_moves *next_move);
 void	make_common_rotations(t_stack *a, t_stack *b, t_moves *next_move);
 
 void	get_cheaper_index(t_stack *a, t_stack *b, t_moves *next_move);
+
 int		get_distance_rb(t_stack *b, t_moves *next_move, int number);
 int		get_distance_rrb(t_stack *b, t_moves *next_move, int number);
 int		get_distance_ra(t_stack *a, int number);

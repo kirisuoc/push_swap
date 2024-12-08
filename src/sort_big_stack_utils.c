@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:17:50 by ecousill          #+#    #+#             */
-/*   Updated: 2024/12/07 22:24:47 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/12/08 12:12:50 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,27 @@ int	ft_max(int a, int b)
 void	is_better_rr(t_moves *next_move)
 {
 	int	current_distance;
-	int	possible_better_distance_r;
-	int	possible_better_distance_rr;
+	int	other_dist_r;
+	int	other_dist_rr;
 
-	possible_better_distance_r = ft_max(next_move->distance_ra, next_move->distance_rb);
-	possible_better_distance_rr = ft_max(next_move->distance_rra, next_move->distance_rrb);
+	other_dist_r = ft_max(next_move->distance_ra, next_move->distance_rb);
+	other_dist_rr = ft_max(next_move->distance_rra, next_move->distance_rrb);
 	if (!next_move->is_reverse_a && next_move->is_reverse_b)
 	{
 		current_distance = next_move->distance_ra + next_move->distance_rrb;
-		if ((possible_better_distance_r < current_distance) && \
-			possible_better_distance_r <= possible_better_distance_rr)
+		if ((other_dist_r < current_distance) && \
+			other_dist_r <= other_dist_rr)
 			next_move->is_reverse_b = 0;
-		else if (possible_better_distance_rr < current_distance)
+		else if (other_dist_rr < current_distance)
 			next_move->is_reverse_a = 1;
 	}
 	else if (next_move->is_reverse_a && !next_move->is_reverse_b)
 	{
 		current_distance = next_move->distance_rra + next_move->distance_rb;
-		if ((possible_better_distance_r < current_distance) && \
-			possible_better_distance_r <= possible_better_distance_rr)
+		if ((other_dist_r < current_distance) && \
+			other_dist_r <= other_dist_rr)
 			next_move->is_reverse_a = 0;
-		else if (possible_better_distance_rr < current_distance)
+		else if (other_dist_rr < current_distance)
 			next_move->is_reverse_b = 1;
 	}
 }
