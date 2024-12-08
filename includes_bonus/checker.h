@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:25:06 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/07 22:25:49 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/12/08 12:01:10 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	rrr_c(t_stack *a, t_stack *b);
 
 // main.c
 int		print_error(char *error_message);
+
+// exec_instructions.c
+void	execute_instructions(char **instr, int count, \
+			t_stack *a, t_stack *b);
 
 // stacks_utils.c
 int		initialize_stacks(t_stack *a, t_stack *b, int argc, char **argv);
