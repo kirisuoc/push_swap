@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:25:06 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/08 12:01:10 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/12/08 13:14:19 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int		is_sorted(t_stack *a);
 // free.c
 void	free_resources(int *numbers, char **split_lst);
 void	free_list(char **list);
+void	free_stacks(t_stack a, t_stack  b);
+void	free_instructions(char **instructions, int instr_count);
 
 // errors.c
 int		print_error(char *error_message);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:36:57 by ecousill          #+#    #+#             */
-/*   Updated: 2024/12/07 13:41:31 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:14:08 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,20 @@ void	free_list(char **list)
 		i++;
 	}
 	free(list);
+}
+
+void	free_stacks(t_stack a, t_stack  b)
+{
+	free(a.data);
+	free(b.data);
+}
+
+void	free_instructions(char **instructions, int instr_count)
+{
+	int	i;
+
+	i = 0;
+		while (i < instr_count)
+		free(instructions[i++]);
+	free (instructions);
 }

@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 12:00:11 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/08 12:10:32 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/12/08 13:04:09 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	execute_reverse(char *instr, t_stack *a, t_stack *b);
 static void	execute_rev_rotate(char *instr, t_stack *a, t_stack *b);
 static void	execute_push(char *instr, t_stack *a, t_stack *b);
 
-void	execute_instructions(char **instr, int count, \
+void	execute_instructions(char **inst, int count, \
 			t_stack *a, t_stack *b)
 {
 	int	i;
@@ -25,17 +25,17 @@ void	execute_instructions(char **instr, int count, \
 	i = 0;
 	while (i < count)
 	{
-		if (ft_strcmp(instr[i], "sa\n") || ft_strcmp(instr[i], "sb\n") \
-			|| ft_strcmp(instr[i], "ss\n") == 0)
-			execute_swap(instr[i], a, b);
-		else if (ft_strcmp(instr[i], "ra\n") || ft_strcmp(instr[i], "rb\n") \
-			|| ft_strcmp(instr[i], "rr\n") == 0)
-			execute_reverse(instr[i], a, b);
-		else if (ft_strcmp(instr[i], "rra\n") || ft_strcmp(instr[i], "rrb\n") \
-			|| ft_strcmp(instr[i], "rrr\n") == 0)
-			execute_rev_rotate(instr[i], a, b);
-		else if (ft_strcmp(instr[i], "pa\n") || ft_strcmp(instr[i], "pb\n"))
-			execute_push(instr[i], a, b);
+		if (!ft_strcmp(inst[i], "sa\n") || !ft_strcmp(inst[i], "sb\n") \
+			|| !ft_strcmp(inst[i], "ss\n"))
+			execute_swap(inst[i], a, b);
+		else if (!ft_strcmp(inst[i], "ra\n") || !ft_strcmp(inst[i], "rb\n") \
+			|| !ft_strcmp(inst[i], "rr\n"))
+			execute_reverse(inst[i], a, b);
+		else if (!ft_strcmp(inst[i], "rra\n") || !ft_strcmp(inst[i], "rrb\n") \
+			|| !ft_strcmp(inst[i], "rrr\n"))
+			execute_rev_rotate(inst[i], a, b);
+		else if (!ft_strcmp(inst[i], "pa\n") || !ft_strcmp(inst[i], "pb\n"))
+			execute_push(inst[i], a, b);
 		else
 		{
 			print_error("Instruction not valid.");

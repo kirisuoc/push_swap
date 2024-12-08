@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:26:24 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/12/08 12:00:36 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/12/08 13:14:27 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main(int ac, char **av)
 	t_stack	b;
 	char	**instructions;
 	int		instructions_count;
-	int		i;
 
 	if (ac == 1)
 		return (print_error("Error. Enter a list of numbers to be sorted."));
@@ -35,10 +34,8 @@ int	main(int ac, char **av)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	i = 0;
-	while (i < instructions_count)
-		free(instructions[i++]);
-	free (instructions);
+	free_instructions(instructions, instructions_count);
+	free_stacks(a, b);
 	return (0);
 }
 
